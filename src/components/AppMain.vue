@@ -10,21 +10,21 @@
 <table class="table-fixed m-auto mt-20">
   <tbody>
     <tr>
-      <td class="border border-pink-500"><button class="p-8" id="1" @click="changeText(1)"></button></td>
-      <td class="border border-pink-500"><button class="p-8" id="2" @click="changeText(2)"></button></td>
-      <td class="border border-pink-500"><button class="p-8" id="3" @click="changeText(3)"></button></td>
+      <td class="border border-pink-500"><button class="w-16 h-16" id="1" @click="changeText(1)"></button></td>
+      <td class="border border-pink-500"><button class="w-16 h-16" id="2" @click="changeText(2)"></button></td>
+      <td class="border border-pink-500"><button class="w-16 h-16" id="3" @click="changeText(3)"></button></td>
     </tr>
     <tr>
-      <td class="border border-pink-500"><button class="p-8" id="4" @click="changeText(4)"></button></td>
-      <td class="border border-pink-500"><button class="p-8" id="5" @click="changeText(5)"></button></td>
-      <td class="border border-pink-500"><button class="p-8" id="6" @click="changeText(6)"></button></td>
+      <td class="border border-pink-500"><button class="w-16 h-16" id="4" @click="changeText(4)"></button></td>
+      <td class="border border-pink-500"><button class="w-16 h-16" id="5" @click="changeText(5)"></button></td>
+      <td class="border border-pink-500"><button class="w-16 h-16" id="6" @click="changeText(6)"></button></td>
     </tr>
     <tr>
-      <td class="border border-pink-500"><button class="p-8" id="7" @click="changeText(7)"></button></td>
-      <td class="border border-pink-500"><button class="p-8" id="8" @click="changeText(8)"></button></td>
-      <td class="border border-pink-500"><button class="p-8" id="9" @click="changeText(9)"></button></td>
+      <td class="border border-pink-500"><button class="w-16 h-16" id="7" @click="changeText(7)"></button></td>
+      <td class="border border-pink-500"><button class="w-16 h-16" id="8" @click="changeText(8)"></button></td>
+      <td class="border border-pink-500"><button class="w-16 h-16" id="9" @click="changeText(9)"></button></td>
 
-    </tr>s
+    </tr>
 
   </tbody>
 </table> 
@@ -46,9 +46,11 @@
              
               if(this.turn%2 == 0){
                 document.getElementById(id).innerText = "X";
+
                 this.player = "Player-1";
               }else{
                 document.getElementById(id).innerText = "O";
+
                 this.player = "Player-2";
               }
            
