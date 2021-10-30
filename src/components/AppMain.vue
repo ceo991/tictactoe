@@ -6,7 +6,8 @@
         </div>-->
     
         <h1 class="text-3xl block card">{{player}}</h1>
-   
+        <h1 class="text-3xl block card">{{playerWinState}}</h1>
+
 <table class="table-fixed m-auto mt-20">
   <tbody>
     <tr>
@@ -28,33 +29,137 @@
 
   </tbody>
 </table> 
-        
+
     </div>
 </template>
 
 <script>
+
     export default {
-        data() {
+              
+          data() {
           return {
             turn: 0,
-            player: "Player-1"
+            player: "Player-1 (O)",
+            playerWinState: "",
+            isGameEnded: false
           } 
         },
         methods: {
           changeText(id) {
-             this.turn++;
-             
-              if(this.turn%2 == 0){
-                document.getElementById(id).innerText = "X";
-
-                this.player = "Player-1";
+             if(!this.isGameEnded){
+              if(this.turn%2 != 0 ){
+                if( document.getElementById(id).innerText == ""){
+                  this.turn++;
+                  document.getElementById(id).innerText = "X";
+                  this.player = "Player-1 (O)";
+                }
               }else{
-                document.getElementById(id).innerText = "O";
-
-                this.player = "Player-2";
+                if( document.getElementById(id).innerText == ""){
+                  this.turn++;
+                  document.getElementById(id).innerText = "O";
+                  this.player = "Player-2 (X)";
+                }
               }
+             }
            
+          },checkForMatches(){
+            if((document.getElementById(1).innerText == "X" && document.getElementById(2).innerText == "X" && document.getElementById(3).innerText == "X")||
+              (document.getElementById(1).innerText == "O" && document.getElementById(2).innerText == "O" && document.getElementById(3).innerText == "O")){
+                document.getElementById(1).style.color = "red";
+                document.getElementById(2).style.color = "red";
+                document.getElementById(3).style.color = "red";
+                document.getElementById(1).style.fontWeight = "bold";
+                document.getElementById(2).style.fontWeight = "bold";
+                document.getElementById(3).style.fontWeight = "bold";
+                this.whoWins();
+            }
+            else if((document.getElementById(4).innerText == "X" && document.getElementById(5).innerText == "X" && document.getElementById(6).innerText == "X")||
+              (document.getElementById(4).innerText == "O" && document.getElementById(5).innerText == "O" && document.getElementById(6).innerText == "O")){
+                document.getElementById(4).style.color = "red";
+                document.getElementById(5).style.color = "red";
+                document.getElementById(6).style.color = "red";
+                document.getElementById(4).style.fontWeight = "bold";
+                document.getElementById(5).style.fontWeight = "bold";
+                document.getElementById(6).style.fontWeight = "bold";
+                this.whoWins();
+            }
+            else if((document.getElementById(7).innerText == "X" && document.getElementById(8).innerText == "X" && document.getElementById(9).innerText == "X")||
+              (document.getElementById(7).innerText == "O" && document.getElementById(8).innerText == "O" && document.getElementById(9).innerText == "O")){
+                document.getElementById(7).style.color = "red";
+                document.getElementById(8).style.color = "red";
+                document.getElementById(9).style.color = "red";
+                document.getElementById(7).style.fontWeight = "bold";
+                document.getElementById(8).style.fontWeight = "bold";
+                document.getElementById(9).style.fontWeight = "bold";
+                this.whoWins();
+            }
+            else if((document.getElementById(1).innerText == "X" && document.getElementById(4).innerText == "X" && document.getElementById(7).innerText == "X")||
+              (document.getElementById(1).innerText == "O" && document.getElementById(4).innerText == "O" && document.getElementById(7).innerText == "O")){
+                document.getElementById(1).style.color = "red";
+                document.getElementById(4).style.color = "red";
+                document.getElementById(7).style.color = "red";
+                document.getElementById(1).style.fontWeight = "bold";
+                document.getElementById(4).style.fontWeight = "bold";
+                document.getElementById(7).style.fontWeight = "bold";
+                this.whoWins();
+            }
+            else if((document.getElementById(2).innerText == "X" && document.getElementById(5).innerText == "X" && document.getElementById(8).innerText == "X")||
+              (document.getElementById(2).innerText == "O" && document.getElementById(5).innerText == "O" && document.getElementById(8).innerText == "O")){
+                document.getElementById(2).style.color = "red";
+                document.getElementById(5).style.color = "red";
+                document.getElementById(8).style.color = "red";
+                document.getElementById(2).style.fontWeight = "bold";
+                document.getElementById(5).style.fontWeight = "bold";
+                document.getElementById(8).style.fontWeight = "bold";
+                this.whoWins();
+            }
+            else if((document.getElementById(3).innerText == "X" && document.getElementById(6).innerText == "X" && document.getElementById(9).innerText == "X")||
+              (document.getElementById(3).innerText == "O" && document.getElementById(6).innerText == "O" && document.getElementById(9).innerText == "O")){
+                document.getElementById(3).style.color = "red";
+                document.getElementById(6).style.color = "red";
+                document.getElementById(9).style.color = "red";
+                document.getElementById(3).style.fontWeight = "bold";
+                document.getElementById(6).style.fontWeight = "bold";
+                document.getElementById(9).style.fontWeight = "bold";
+                this.whoWins();
+            }
+            else if((document.getElementById(1).innerText == "X" && document.getElementById(5).innerText == "X" && document.getElementById(9).innerText == "X")||
+              (document.getElementById(1).innerText == "O" && document.getElementById(5).innerText == "O" && document.getElementById(9).innerText == "O")){
+                document.getElementById(1).style.color = "red";
+                document.getElementById(5).style.color = "red";
+                document.getElementById(9).style.color = "red";
+                document.getElementById(1).style.fontWeight = "bold";
+                document.getElementById(5).style.fontWeight = "bold";
+                document.getElementById(9).style.fontWeight = "bold";
+                this.whoWins();
+            }
+            else if((document.getElementById(3).innerText == "X" && document.getElementById(5).innerText == "X" && document.getElementById(7).innerText == "X")||
+              (document.getElementById(3).innerText == "O" && document.getElementById(5).innerText == "O" && document.getElementById(7).innerText == "O")){
+                document.getElementById(3).style.color = "red";
+                document.getElementById(5).style.color = "red";
+                document.getElementById(7).style.color = "red";
+                document.getElementById(3).style.fontWeight = "bold";
+                document.getElementById(5).style.fontWeight = "bold";
+                document.getElementById(7).style.fontWeight = "bold";
+                this.whoWins();
+            }  
+
+          },
+          whoWins(){
+            if(this.turn%2 == 0){
+              this.playerWinState = "Player-2 wins";
+              this.isGameEnded = true;
+              this.player = "";
+            }else{
+              this.playerWinState = "Player-1 wins";
+              this.isGameEnded = true;
+              this.player = "";
+            }
           }
+        },
+        updated () {
+          this.checkForMatches();
         },
     }
 </script>
