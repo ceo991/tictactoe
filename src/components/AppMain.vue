@@ -169,6 +169,8 @@
           restartGame(){
             this.isGameEnded= false;
             this.playerWinState= "";
+            this.turn= 0;
+            this.player= "Player-1 (O)";
             document.getElementById(1).innerText = "";
             document.getElementById(2).innerText = "";
             document.getElementById(3).innerText = "";
