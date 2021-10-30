@@ -3,7 +3,10 @@
     
         <h1 class="text-3xl block card">{{player}}</h1>
         <h1 class="text-3xl block card">{{playerWinState}}</h1>
-
+        <div class="score-card">
+          <span><strong>Player-1:</strong> {{p1score}}</span>
+          <span><strong>Player-2:</strong> {{p2score}}</span>
+        </div>
 <table class="table-fixed m-auto mt-20">
   <tbody>
     <tr>
@@ -25,16 +28,18 @@
 
   </tbody>
 </table> 
-
- <transition name="fade" appear>
-  <div class="modal-overlay" v-if="isGameEnded" @click="showModal = false"></div>
- </transition>
- <transition name="slide" appear>
-  <div class="modal" v-if="isGameEnded">
-   <h1>GAME OVER !</h1>
+   <button class="button mt-8"  @click="resetGame()">
+    Reset
+   </button>
+  <transition name="fade" appear>
+    <div class="modal-overlay" v-if="isGameEnded" @click="showModal = false"></div>
+  </transition>
+  <transition name="slide" appear>
+    <div class="modal" v-if="isGameEnded">
+   <h1> <strong> GAME OVER ! </strong></h1>
    <p>{{playerWinState}}</p>
-   <button class="button" @click="restartGame()">
-    Restart
+   <button class="button" @click="playAgain()">
+    Play Again
    </button>
   </div>
  </transition>
@@ -51,7 +56,9 @@
             turn: 0,
             player: "Player-1 (O)",
             playerWinState: "",
-            isGameEnded: false
+            isGameEnded: false,
+            p1score:0,
+            p2score:0,
           } 
         },
         methods: {
@@ -156,21 +163,61 @@
 
           },
           whoWins(){
-            if(this.turn%2 == 0){
-              this.playerWinState = "Player-2 wins";
-              this.isGameEnded = true;
-              this.player = "";
-            }else{
-              this.playerWinState = "Player-1 wins";
-              this.isGameEnded = true;
-              this.player = "";
+              if(!this.isGameEnded){
+              if(this.turn%2 == 0){
+                this.playerWinState = "Player-2 wins";
+                this.p2score ++;
+                this.isGameEnded = true;
+                this.player = "";
+              }else{
+                this.playerWinState = "Player-1 wins";
+                this.p1score ++;
+                this.isGameEnded = true;
+                this.player = "";
+              }
             }
           },
-          restartGame(){
+          playAgain(){
             this.isGameEnded= false;
             this.playerWinState= "";
             this.turn= 0;
             this.player= "Player-1 (O)";
+            document.getElementById(1).innerText = "";
+            document.getElementById(2).innerText = "";
+            document.getElementById(3).innerText = "";
+            document.getElementById(4).innerText = "";
+            document.getElementById(5).innerText = "";
+            document.getElementById(6).innerText = "";
+            document.getElementById(7).innerText = "";
+            document.getElementById(8).innerText = "";
+            document.getElementById(9).innerText = "";
+
+            document.getElementById(1).style.color = "inherit";
+            document.getElementById(2).style.color = "inherit";
+            document.getElementById(3).style.color = "inherit";
+            document.getElementById(1).style.fontWeight = "normal";
+            document.getElementById(2).style.fontWeight = "normal";
+            document.getElementById(3).style.fontWeight = "normal";
+            document.getElementById(4).style.color = "inherit";
+            document.getElementById(5).style.color = "inherit";
+            document.getElementById(6).style.color = "inherit";
+            document.getElementById(4).style.fontWeight = "normal";
+            document.getElementById(5).style.fontWeight = "normal";
+            document.getElementById(6).style.fontWeight = "normal";
+            document.getElementById(7).style.color = "inherit";
+            document.getElementById(8).style.color = "inherit";
+            document.getElementById(9).style.color = "inherit";
+            document.getElementById(7).style.fontWeight = "normal";
+            document.getElementById(8).style.fontWeight = "normal";
+            document.getElementById(9).style.fontWeight = "normal";
+          },
+          resetGame(){
+            this.isGameEnded= false;
+            this.playerWinState= "";
+            this.turn= 0;
+            this.player= "Player-1 (O)";
+            this.p1score = 0;
+            this.p2score = 0;
             document.getElementById(1).innerText = "";
             document.getElementById(2).innerText = "";
             document.getElementById(3).innerText = "";
@@ -212,10 +259,17 @@
         @apply justify-center items-center h-screen text-emerald-500 text-center bg-gray-100 ;
     }
     .card{
-        @apply rounded-lg border border-emerald-300 bg-emerald-100 p-10 shadow-lg;
+        @apply flex justify-center rounded-lg border border-emerald-300 bg-emerald-100 p-10 shadow-lg;
     }
 
-
+    .score-card{
+        @apply flex justify-around rounded-lg border text-emerald-900 border-emerald-300 bg-emerald-100 p-10 shadow-lg ;
+    }
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
 
 body {
  font-family: 'montserrat', sans-serif;
@@ -250,7 +304,7 @@ body {
  font-weight: 700;
  
  box-shadow: 3px 3px rgba(0, 0, 0, 0.4);
- transition: 0.4s ease-out;
+ transition: all 0.4s ease-out;
  
  &:hover {
   box-shadow: 6px 6px rgba(0, 0, 0, 0.6);
@@ -259,6 +313,8 @@ body {
 
 .modal-overlay {
  position: absolute;
+ width: 100%;
+ height: 100%;
  top: 0;
  left: 0;
  right: 0;
