@@ -1,12 +1,12 @@
 <template>
   <div class="wrapper">
-    <h1 class="text-3xl block card">{{ player }}</h1>
-    <h1 class="text-3xl block card">{{ playerWinState }}</h1>
+    <h1 class="text-3xl block card italic">{{ player }}</h1>
+    <h1 class="text-3xl block card italic">{{ playerWinState }}</h1>
     <div class="score-card">
-      <span><strong>Player-1:</strong> {{ p1score }}</span>
-      <span><strong>Player-2:</strong> {{ p2score }}</span>
+      <span class="italic"><strong>Player-1:</strong> {{ p1score }}</span>
+      <span class="italic"><strong>Player-2:</strong> {{ p2score }}</span>
     </div>
-    <table class="table-fixed m-auto mt-20">
+    <table class="table-fixed m-auto mt-10">
       <tbody>
         <tr>
           <td class="border border-pink-500">
@@ -55,8 +55,8 @@
     <transition name="slide" appear>
       <div class="modal" v-if="isGameEnded">
         <h1><strong> GAME OVER ! </strong></h1>
-        <p>{{ playerWinState }}</p>
-        <button class="button" @click="playAgain()">Play Again</button>
+        <p class="mt-3 italic">{{ playerWinState }}</p>
+        <button class="button mt-5" @click="playAgain()">Play Again</button>
       </div>
     </transition>
 
@@ -78,7 +78,17 @@
         "
         v-if="playButtonPressed"
       >
-        <h1 class="text-2xl block card h-30 w-60">
+        <h1
+          class="
+            text-2xl
+            title-card
+            h-48
+            w-80
+            flex
+            justify-items-center
+            items-center
+          "
+        >
           <strong><em>TİC-TAC-TOE</em></strong>
         </h1>
         <button class="button w-60 mt-7" @click="playButtonPressed = false">
@@ -357,9 +367,14 @@ export default {
   @apply flex justify-center rounded-lg border border-emerald-300 bg-emerald-100 p-10 shadow-lg;
 }
 
+.title-card {
+  @apply flex justify-center rounded-lg border border-pink-500 bg-emerald-100 p-10 shadow-lg;
+}
+
 .score-card {
   @apply flex justify-around rounded-lg border text-emerald-900 border-emerald-300 bg-emerald-100 p-10 shadow-lg;
 }
+
 * {
   margin: 0;
   padding: 0;
