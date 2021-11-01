@@ -25,7 +25,7 @@
             </div>
           </td>
         </tr>
-        <tr style="height: 80px">
+        <tr>
           <td class="border border-pink-500" style="height: 80px; width: 80px">
             <div style="height: 100%; width: 100%;">
               <button  id="4" @click="changeText(4)" style="height: 100%; width: 100%;"></button>
@@ -42,7 +42,7 @@
             </div>
           </td>
         </tr>
-        <tr style="height: 80px">
+        <tr>
           <td class="border border-pink-500" style="height: 80px; width: 80px">
             <div style="height: 100%; width: 100%;">
               <button  id="7" @click="changeText(7)" style="height: 100%; width: 100%;"></button>
