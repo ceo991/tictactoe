@@ -9,36 +9,54 @@
     <table class="table-fixed m-auto mt-10">
       <tbody>
         <tr>
-          <td class="border border-pink-500">
-            <button class="w-16 h-16" id="1" @click="changeText(1)"></button>
+          <td class="border border-pink-500" style="height: 80px; width: 80px">
+            <div style="height: 100%; width: 100%;">
+              <button  id="1" @click="changeText(1)" style="height: 100%; width: 100%;"></button>
+            </div>
           </td>
-          <td class="border border-pink-500">
-            <button class="w-16 h-16" id="2" @click="changeText(2)"></button>
+          <td class="border border-pink-500" style="height: 80px; width: 80px">
+            <div style="height: 100%; width: 100%;">
+              <button  id="2" @click="changeText(2)" style="height: 100%; width: 100%;"></button>
+            </div>
           </td>
-          <td class="border border-pink-500">
-            <button class="w-16 h-16" id="3" @click="changeText(3)"></button>
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-pink-500">
-            <button class="w-16 h-16" id="4" @click="changeText(4)"></button>
-          </td>
-          <td class="border border-pink-500">
-            <button class="w-16 h-16" id="5" @click="changeText(5)"></button>
-          </td>
-          <td class="border border-pink-500">
-            <button class="w-16 h-16" id="6" @click="changeText(6)"></button>
+          <td class="border border-pink-500" style="height: 80px; width: 80px">
+            <div style="height: 100%; width: 100%;">
+              <button  id="3" @click="changeText(3)" style="height: 100%; width: 100%;"></button>
+            </div>
           </td>
         </tr>
-        <tr>
-          <td class="border border-pink-500">
-            <button class="w-16 h-16" id="7" @click="changeText(7)"></button>
+        <tr style="height: 80px">
+          <td class="border border-pink-500" style="height: 80px; width: 80px">
+            <div style="height: 100%; width: 100%;">
+              <button  id="4" @click="changeText(4)" style="height: 100%; width: 100%;"></button>
+            </div>
           </td>
-          <td class="border border-pink-500">
-            <button class="w-16 h-16" id="8" @click="changeText(8)"></button>
+          <td class="border border-pink-500" style="height: 80px; width: 80px">
+            <div style="height: 100%; width: 100%;">
+              <button  id="5" @click="changeText(5)" style="height: 100%; width: 100%;"></button>
+            </div>
           </td>
-          <td class="border border-pink-500">
-            <button class="w-16 h-16" id="9" @click="changeText(9)"></button>
+          <td class="border border-pink-500" style="height: 80px; width: 80px">
+            <div style="height: 100%; width: 100%;">
+              <button  id="6" @click="changeText(6)" style="height: 100%; width: 100%;"></button>
+            </div>
+          </td>
+        </tr>
+        <tr style="height: 80px">
+          <td class="border border-pink-500" style="height: 80px; width: 80px">
+            <div style="height: 100%; width: 100%;">
+              <button  id="7" @click="changeText(7)" style="height: 100%; width: 100%;"></button>
+            </div>
+          </td>
+          <td class="border border-pink-500" style="height: 80px; width: 80px">
+            <div style="height: 100%; width: 100%;">
+              <button  id="8" @click="changeText(8)" style="height: 100%; width: 100%;"></button>
+            </div>
+          </td>
+          <td class="border border-pink-500" style="height: 80px; width: 80px">
+            <div style="height: 100%; width: 100%;">
+              <button  id="9" @click="changeText(9)" style="height: 100%; width: 100%;"></button>
+            </div>
           </td>
         </tr>
       </tbody>
