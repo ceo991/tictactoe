@@ -6,7 +6,7 @@
       <span class="italic"><strong>Player-1:</strong> {{ p1score }}</span>
       <span class="italic"><strong>Player-2:</strong> {{ p2score }}</span>
     </div>
-    <table class="table-fixed m-auto mt-10">
+    <table class="table-fixed m-auto mt-10" cellpadding="0" cellspacing="0">
       <tbody>
         <tr>
           <td class="border border-pink-500" style="height: 80px; width: 80px">
